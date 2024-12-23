@@ -3,6 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { FighterModule } from './fighter/fighter.module';
+import { FightModule } from './fight/fight.module';
+import { EventModule } from './event/event.module';
+import { RankingModule } from './ranking/ranking.module';
 
 @Module({
   imports: [
@@ -25,6 +29,10 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       autoSchemaFile: [process.cwd().replace(',', ''), 'src/schema.gql'].join(),
       playground: true,
     }),
+    FighterModule,
+    FightModule,
+    EventModule,
+    RankingModule,
   ],
   controllers: [],
   providers: [],
