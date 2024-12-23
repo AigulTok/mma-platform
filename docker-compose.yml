@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    container_name: mma-db
+    environment:
+      POSTGRES_USER: mmauser
+      POSTGRES_PASSWORD: mmapassword
+      POSTGRES_DB: mmadb
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
